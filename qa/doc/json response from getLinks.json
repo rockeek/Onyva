@@ -1,0 +1,43 @@
+{
+  "vehicules":[
+	 {
+		"vehiculeId":"1",
+		"seats":"5",
+		"freeSeats":"3",
+		"trademark":"Citroën Xsara",
+		"color":"gray",
+		"vehiculeName":"Xsara Rémy",
+		"passengers":[
+		   {
+			  "passengerId":"1",
+			  "passengerName":"Remy"
+		   },
+		   {
+			  "passengerId":"2",
+			  "passengerName":"Emilie"
+		   }
+		]
+	 },
+	 {
+		"vehiculeId":"2",
+		"seats":"4",
+		"freeSeats":"4",
+		"trademark":"Opel",
+		"color":"Bleue",
+		"vehiculeName":"Opel Olivier",
+		"passengers":[
+
+		]
+	 }
+  ],
+  "passengers":[
+	 {
+		"passengerId":"3",
+		"passengerName":"Olivier"
+	 },
+	 {
+		"passengerId":"4",
+		"passengerName":"Mélanie"
+	 }
+  ]
+}

@@ -1,0 +1,737 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Onyva requests",
+		"_postman_id": "be5cd981-0080-30ec-13bf-c56a606bce76",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Device register",
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/device",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"os\":\"Android\",\r\n   \"version\":\"1\",\r\n   \"identifier\":\"abc1234\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Clubs correct name/pass",
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/club",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n      \"identifier\":\"aaabbb\"\r\n   },\r\n   {\r\n      \"clubs\":[\r\n         {\r\n            \"clubId\":\"10000\",\r\n            \"password\":\"FirstDummy\"\r\n         },\r\n         {\r\n            \"name\":\"newClub\",\r\n            \"password\":\"FirstDummy\"\r\n         }\r\n      ]\r\n   }\r\n]"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetPassengers via POST",
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/getpassenger",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"identifier\":\"aaabbb\"\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Passengers create and update",
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/setpassenger",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n      \"identifier\":\"aaabbb\"\r\n   },\r\n   {\r\n      \"passengers\":[\r\n         {\r\n            \"passengerId\":2,\r\n            \"name\":\"Fifoo\"\r\n         },\r\n         {\r\n            \"name\":\"Kiko\"\r\n         }\r\n      ]\r\n   }\r\n]"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Passengers update fail because wrong identifier",
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/setpassenger",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n      \"identifier\":\"idontexist\"\r\n   },\r\n   {\r\n      \"passengers\":[\r\n         {\r\n            \"passengerId\":2,\r\n            \"name\":\"Another man that is not good\"\r\n         },\r\n         {\r\n            \"name\":\"User that should not be created\"\r\n         }\r\n      ]\r\n   }\r\n]"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Passengers update",
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/setpassenger",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n      \"identifier\":\"aaabbb\"\r\n   },\r\n   {\r\n      \"passengers\":[\r\n         {\r\n            \"passengerId\":1,\r\n            \"name\":\"Poulet\"\r\n         },\r\n         {\r\n            \"passengerId\":2,\r\n            \"name\":\"Grille\"\r\n         }\r\n      ]\r\n   }\r\n]"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetVehicules via POST",
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/getvehicule",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\"\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Vehicules create and update copy",
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/setvehicule",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n      \"identifier\":\"aaabbb\"\r\n   },\r\n   {\r\n      \"vehicules\":[\r\n         {\r\n        \"vehiculeId\": 1,\r\n        \"name\": \"Xsara Rémy\",\r\n        \"trademark\": \"Citroën Xsara\",\r\n        \"color\": \"Verte\",\r\n        \"seats\": 5\r\n         },\r\n         {\r\n            \"name\": \"Golf 4\",\r\n            \"trademark\": \"Wolkswagen\",\r\n            \"color\": \"Rouge\",\r\n            \"seats\": 2\r\n         }\r\n      ]\r\n   }\r\n]"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Vehicules update fail because wrong identifier copy",
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/setvehicule",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n      \"identifier\":\"idontexist\"\r\n   },\r\n   {\r\n      \"vehicules\":[\r\n         {\r\n            \"vehiculeId\": \"1\",\r\n\t        \"name\": \"Xsara Rémy cassée\",\r\n\t        \"trademark\": \"Citroën Xsara 1.9\",\r\n\t        \"color\": \"Orange\",\r\n\t        \"seats\": \"3\"\r\n         },\r\n         {\r\n\t        \"name\": \"Voiture de collection\",\r\n\t        \"trademark\": \"Mercedes\",\r\n\t        \"color\": \"Blanche\",\r\n\t        \"seats\": \"5\"\r\n         }\r\n      ]\r\n   }\r\n]"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetTravels",
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/gettravel",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\"\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetTravels with filter day",
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/gettravel/friday",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\"\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetTravels with filter day and time",
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/gettravel/friday/18:15",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\"\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "SetTravels",
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/settravel",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n      \"identifier\":\"aaabbb\",\r\n      \"clubId\":\"10001\",\r\n      \"clubPassword\":\"boing\"\r\n   },\r\n   {\r\n      \"travels\":[\r\n         {\r\n            \"travelId\":\"1\",\r\n            \"day\":\"THURSDAY\",\r\n            \"time\":\"08:20\"\r\n         },\r\n         {\r\n            \"travelId\":\"2\",\r\n            \"date\":\"2017-12-18\",\r\n            \"time\":\"17:25\"\r\n         },\r\n         {\r\n            \"date\":\"2017-12-18\",\r\n            \"time\":\"17:25\"\r\n         },\r\n         {\r\n            \"day\":\"MONDAY\",\r\n            \"time\":\"08:20\"\r\n         },\r\n         {\r\n           \"date\":null,\r\n            \"day\":\"THURSDAY\",\r\n            \"time\":\"08:25\"\r\n         }\r\n      ]\r\n   }\r\n]"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetTravelsClub10002",
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/gettravel",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"clubId\":\"10002\",\r\n  \"clubPassword\":\"popo\"\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetTravelsClub10001",
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/gettravel",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\"\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetLinks For TravelId=1",
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/getlink",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"1\"\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GetLinks For TravelId=2",
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/getlink",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"2\"\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "SetLinks CASE1 - Alexandra offers her car with herself",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Check result\"] = jsonData['result'] === \"new vehicule with a passenger link successfully\";",
+							"tests[\"Check validation\"] = jsonData['validation'] === null;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/setlink",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"poulet\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"1\",\r\n  \"link\":{\r\n    \"passengerId\":\"6\",\r\n    \"vehiculeId\":\"3\"\r\n  }\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "SetLinks CASE1 faulty - Alexandra offers a car of another device",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Check validation\"] = jsonData['validation'] === \"vehicule and passenger must belong to the commanding device\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/setlink",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"poulet\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"1\",\r\n  \"link\":{\r\n    \"passengerId\":\"6\",\r\n    \"vehiculeId\":\"5\"\r\n  }\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "SetLinks CASE2 - Noémie tries to offer her car without driver",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Check validation\"] = jsonData['validation'] === \"a vehicule needs a driver\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/setlink",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"cahier\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"1\",\r\n  \"link\":{\r\n    \"passengerId\":null,\r\n    \"vehiculeId\":\"5\"\r\n  }\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "SetLinks CASE2 faulty - Noémie tries to offer someone else's car without driver",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Check validation\"] = jsonData['validation'] === \"the vehicule must belong to the commanding device\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/setlink",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"cahier\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"1\",\r\n  \"link\":{\r\n    \"passengerId\":null,\r\n    \"vehiculeId\":\"3\"\r\n  }\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "SetLinks CASE3 - Deborah to Xsara",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Check result\"] = jsonData['result'] === \"new passenger linked to existing vehicule successfully\";",
+							"tests[\"Check validation\"] = jsonData['validation'] === null;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/setlink",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"joujou\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"1\",\r\n  \"link\":{\r\n    \"passengerId\":\"8\",\r\n    \"vehiculeId\":\"1\"\r\n  }\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "SetLinks CASE4 - Lisa goes waiting as a lonely passenger",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Check result\"] = jsonData['result'] === \"lonely passenger linked to existing vehicule successfully\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/setlink",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"youhou\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"2\",\r\n  \"link\":{\r\n    \"passengerId\":\"9\",\r\n    \"vehiculeId\":null\r\n  }\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "SetLinks CASE4 faulty - Lisa try to set Deborah to go waiting as a lonely passenger",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Check validation\"] = jsonData['validation'] === \"passenger must belong to the commanding device\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/setlink",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"youhou\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"1\",\r\n  \"link\":{\r\n    \"passengerId\":\"8\",\r\n    \"vehiculeId\":null\r\n  }\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "SetLinks CASE4 faulty TravelId2 - Lisa try to set Deborah to go waiting as a lonely passenger",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Check validation\"] = jsonData['validation'] === \"passenger must belong to the commanding device\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/setlink",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"youhou\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"2\",\r\n  \"link\":{\r\n    \"passengerId\":\"8\",\r\n    \"vehiculeId\":null\r\n  }\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "SetLinks CASE5 - Former lonely Alexandra goes to Xsara",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Check result\"] = jsonData['result'] === \"lonely passenger went to waiting vehicule successfully\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/setlink",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"poulet\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"1\",\r\n  \"link\":{\r\n    \"passengerId\":\"6\",\r\n    \"vehiculeId\":\"1\"\r\n  }\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "SetLinks CASE5b - XsaraOwnerTakesInLonelyNoemie (travelId=2)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Check result\"] = jsonData['result'] === \"vehicule owner picked the lonely passenger up\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/setlink",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"2\",\r\n  \"link\":{\r\n    \"passengerId\":\"4\",\r\n    \"vehiculeId\":\"1\"\r\n  }\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "SetLinks CASE5c - NoemieExistsXsaraCarToSidewalk (travelId=2)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Check result\"] = jsonData['result'] === \"passenger went lonely waiting to the sidewalk\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/setlink",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"cahier\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"2\",\r\n  \"link\":{\r\n    \"passengerId\":\"10\",\r\n    \"vehiculeId\":null\r\n  }\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "SetLinks CASE5d - XsaraDriverKicksOutLisa (travelId=2)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Check result\"] = jsonData['result'] === \"vehicule driver kicked the passenger to the sidewalk\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/setlink",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"2\",\r\n  \"link\":{\r\n    \"passengerId\":\"9\",\r\n    \"vehiculeId\":null\r\n  }\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

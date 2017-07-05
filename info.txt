@@ -1,0 +1,103 @@
+Composer
+--------
+https://getcomposer.org/doc/00-intro.md
+If you want to install it manually, on cloud9, ~/bin is in PATH already
+
+Bare slim project:
+------------------
+https://github.com/slimphp/Slim-Skeleton
+php composer.phar create-project slim/slim-skeleton [my-app-name]
+
+Access json rest from JS:
+-------------------------
+https://www.w3schools.com/js/tryit.asp?filename=tryjson_php_db_post
+https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/responseText
+
+MySql RowVersion time zone issue:
+---------------------------------
+http://stackoverflow.com/questions/947299/how-do-i-make-mysqls-now-and-curdate-functions-use-utc
+
+Curl test post requests with headers
+------------------------------------
+curl -H 'Content-Type: application/json' -X POST -d '{"os": "Android", "identifier": "abc123", "version": "1"}' http://localhost:8081/device
+
+Ghirkin-like tests
+------------------
+https://www.littlehart.net/atthekeyboard/2012/02/26/simple-api-testing-with-behat/
+
+Get IP address into request
+---------------------------
+https://github.com/akrabat/rka-ip-address-middleware
+composer require akrabat/rka-ip-address-middleware
+
+easy debug in html output
+-------------------------
+add in composer in require-dev with this command:
+    composer require --dev raveren/kint
+http://www.codediesel.com/tools/easy-php-debugging-with-kint/
+To remove it:
+    composer remove raveren/kint
+    
+sessions
+--------
+read variable: $_COOKIE['PHPSESSID']
+How to set that in tests?
+
+To call a static Controller class from Test
+-------------------------------------------
+use App\ClubController;
+(...)
+ClubController::flushAllClubs()
+
+In non static:
+$clubController = new ClubController();
+$clubController->flushAllClubs();
+
+Run one part of tests
+---------------------
+composer test tests\\Functional\\ClubTest
+
+To add a route, we can also do:
+-------------------------------
+dependencies.php:
+$container['TravelController'] = function ($c) {
+    return new App\TravelController($c);
+};
+
+routes.php:
+$app->get('/travel', function ($request, $response, $args) {
+    $travel = $this->get('TravelController');
+    $travel->travel($request, $response, $args);
+
+    return $response;
+});
+
+To make debug possible:
+-----------------------
+set in apache:
+# sudo vi /etc/apache2/sites-available/002-onyva.conf 
+
+<VirtualHost *:8080>
+    DocumentRoot /home/ubuntu/workspace/onyva/public
+    ServerName https://${C9_HOSTNAME}:443
+
+    LogLevel info
+
+    ErrorLog ${APACHE_LOG_DIR}/errorOnyva.log
+    CustomLog ${APACHE_LOG_DIR}/accessOnyva.log combined
+    
+    <Directory /home/ubuntu/workspace/onyva/public>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+ServerName https://${C9_HOSTNAME}
+
+Link it as available site:
+# cd /etc/apache2/sites-enabled
+# sudo ln -s ../sites-available/002-onyva.conf
+
+# sudo service apache2 restart
+
+And remember to set break points on line that is not the first { of the class!!
