@@ -36,11 +36,8 @@ class VehiculeController extends Controller
      *
      * Json body request like:
      *
-     * [
-     *  {
-     *    "identifier":"47gV61SUd3AraOCkNIvPwKDoQZynzJjFt9qXW0i8mLfMHxe5buhYEsR2GBcTpl"
-     *  },
-     *  {
+     * {
+     *    "identifier":"47gV61SUd3AraOCkNIvPwKDoQZynzJjFt9qXW0i8mLfMHxe5buhYEsR2GBcTpl",
      *    "vehicules":[
      *      {
      *          "vehiculeId": "1",
@@ -54,8 +51,7 @@ class VehiculeController extends Controller
      *          "name":"Nouveau passager"
      *      }
      *    ]
-     *  }
-     * ]
+     * }
      *
      * @return \Slim\Http\Response
      */
@@ -65,7 +61,7 @@ class VehiculeController extends Controller
         $requestVehicules = $request->getParsedBody();
 
         // device should already be registered to create or update vehicules
-        $identifier = $requestVehicules[0]['identifier'];
+        $identifier = $requestVehicules['identifier'];
 
         $deviceId = $this->getDeviceIdFromIdentifier($identifier);
         if ($deviceId == null) {
@@ -74,7 +70,7 @@ class VehiculeController extends Controller
 
         $vehiculesResponse = array();
 
-        foreach ($requestVehicules[1]['vehicules'] as $vehicule) {
+        foreach ($requestVehicules['vehicules'] as $vehicule) {
             if (isset($vehicule['name'])) {
                 if (isset($vehicule['vehiculeId'])) { // Try to update. The updateVehicule contains the security. It will not update if the deviceId is not the good one
                     $this->info($this->updateVehicule($deviceId, $vehicule['vehiculeId'], $vehicule['name'], $vehicule['trademark'], $vehicule['color'], $vehicule['seats']));

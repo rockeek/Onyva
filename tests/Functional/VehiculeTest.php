@@ -6,9 +6,7 @@ class VehiculeTest extends BaseTestCase
 {
     public function testGetVehicules()
     {
-        $identifier = 'aaabbb';
-        $idRequest = ['identifier' => $identifier];
-        $response = $this->runApp('POST', '/getvehicule', $idRequest);
+        $response = $this->runApp('POST', '/getvehicule', array('identifier' => 'aaabbb'));
 
         $json = json_decode($response->getBody(), true);
         //$this->show($json);
@@ -43,41 +41,30 @@ class VehiculeTest extends BaseTestCase
 
     public function testCannotUpdateAVehiculeBelongingToAnotherDevice()
     {
-        $identifier = 'kkkooo';
-        $idRequest = ['identifier' => $identifier];
-        $response = $this->runApp('POST', '/getvehicule', $idRequest);
+        $response = $this->runApp('POST', '/getvehicule', array('identifier' => 'kkkooo'));
 
         $json = json_decode($response->getBody(), true);
         $this->assertEquals('Opel Olivier', (string) $json[0]['name']);
 
-        $jsonRequest = json_decode('[
+        $jsonRequest = json_decode('
            {
-              "identifier":"aaabbb"
-           },
-           {
+              "identifier":"aaabbb",
               "vehicules":[
                  {
                     "vehiculeId":'.$json[0]['vehiculeId'].',
                     "name":"The modified vehicule"
                  }
               ]
-           }
-        ]', true);
+           }', true);
 
         $response = $this->runApp('POST', '/setvehicule', $jsonRequest);
         $this->assertEquals(200, $response->getStatusCode());
-
-        $jsonRequest = json_decode('[
-           {
-              "identifier":"kkkooo"
-           }
-        ]', true);
 
         $json = json_decode($response->getBody(), true);
         $this->assertContains('Xsara', $json[0]['name']);
 
         // Check back that the vehicule of the other device has not been modified
-        $response = $this->runApp('POST', '/getvehicule', $idRequest);
+        $response = $this->runApp('POST', '/getvehicule', array('identifier' => 'kkkooo'));
         $json = json_decode($response->getBody(), true);
         $this->assertEquals('Opel Olivier', (string) $json[0]['name']);
     }
@@ -85,7 +72,6 @@ class VehiculeTest extends BaseTestCase
     // Seats are mandatory in database
     public function testCreateAndUpdateVehicules()
     {
-        $identifier = 'aaabbb';
         $name1 = $this->randomString(12);
         $name2 = $this->randomString(12);
         $seats1 = '3';
@@ -95,11 +81,10 @@ class VehiculeTest extends BaseTestCase
         $color1 = $this->randomString(10);
         $color2 = $this->randomString(10);
 
-        $idRequest = ['identifier' => $identifier];
         $vehicule1 = ['name' => $name1, 'seats' => $seats1, 'trademark' => $trademark1, 'color' => $color1];
         $vehicule2 = ['name' => $name2, 'seats' => $seats2, 'trademark' => $trademark2, 'color' => $color2];
-        $vehicules = ['vehicules' => [$vehicule1, $vehicule2]];
-        $requestVehicules = [$idRequest, $vehicules];
+        $requestVehicules = array('identifier' => 'aaabbb', 'vehicules' => [$vehicule1, $vehicule2]);
+        //$this->show(json_encode($requestVehicules));
 
         $response = $this->runApp('POST', '/setvehicule', $requestVehicules);
         $json = json_decode($response->getBody(), true);
@@ -145,8 +130,7 @@ class VehiculeTest extends BaseTestCase
         $vehicule2['trademark'] = $newTrademark2;
         $vehicule2['color'] = $newColor2;
 
-        $vehicules = ['vehicules' => [$vehicule1, $vehicule2]];
-        $requestVehicules = [$idRequest, $vehicules];
+        $requestVehicules = array('identifier' => 'aaabbb', 'vehicules' => [$vehicule1, $vehicule2]);
         $response = $this->runApp('POST', '/setvehicule', $requestVehicules);
         $json = json_decode($response->getBody(), true);
 
