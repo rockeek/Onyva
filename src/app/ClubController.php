@@ -13,23 +13,19 @@ class ClubController extends Controller
      * @param object              $args
      *
      * The JSON request should look like:
-     * [
      * {
-     *    "identifier":"47gV61SUd3AraOCkNIvPwKDoQZynzJjFt9qXW0i8mLfMHxe5buhYEsR2GBcTpl"
-     * },
-     * {
-     *    "clubs":[
-     *       {
-     *          "clubId":"100013",
-     *          "password":"Reunion"
-     *       },
-     *       {
-     *          "clubId":"100015",
-     *          "password":"popo"
-     *       }
+     *   "identifier":"47gV61SUd3AraOCkNIvPwKDoQZynzJjFt9qXW0i8mLfMHxe5buhYEsR2GBcTpl",
+     *   "clubs":[
+     *     {
+     *        "clubId":"100013",
+     *        "password":"Reunion"
+     *     },
+     *     {
+     *        "clubId":"100015",
+     *        "password":"popo"
+     *     }
      *    ]
      * }
-     * ]
      *
      * @return \Slim\Http\Response
      */
@@ -40,20 +36,20 @@ class ClubController extends Controller
         $requestClubs = $request->getParsedBody();
 
         // device should already be registered to create or join clubs
-        $deviceId = $this->getDeviceIdFromIdentifier($requestClubs[0]['identifier']);
+        $deviceId = $this->getDeviceIdFromIdentifier($requestClubs['identifier']);
         if ($deviceId == null) {
             return $response->withStatus(406);
         }
 
         // password is mandatory
-        foreach ($requestClubs[1]['clubs'] as $club) {
+        foreach ($requestClubs['clubs'] as $club) {
             if (!isset($club['password'])) {
                 return $response->withJson($data, 406);
             }
         }
 
         $clubsResponse = array();
-        foreach ($requestClubs[1]['clubs'] as $club) {
+        foreach ($requestClubs['clubs'] as $club) {
             if (isset($club['name']) && !isset($club['clubId'])) {
                 // CREATE a new club
                 // retrieve clubId, name, number of members

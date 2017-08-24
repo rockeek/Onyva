@@ -14,7 +14,7 @@ class ClubTest extends BaseTestCase
     /**
      * Test that we can register clubs.
      * With Curl, use:
-     * curl -H 'Content-Type: application/json' -X POST -d '[{"identifier":"n1ik6cK53xLOUTayA0WqsZIMPCHR8jS2rBQegFuJhbE4vVpzwY7oDmG9ltXdNf"},{"clubs":[{"name":"St Sever","password":"Reunion"}]}]' http://localhost:8081/club.
+     * curl -H 'Content-Type: application/json' -X POST -d '{"identifier":"aaabbb","clubs":[{"name":"St Sever","password":"Reunion"}]}' http://localhost:8080/club.
      */
     public function testRegisterOneClub()
     {
@@ -63,7 +63,7 @@ class ClubTest extends BaseTestCase
         $this->assertEmpty($json[0]);
     }
 
-/*    public function testTwoDeviceRegisterSameClub()
+    /* public function testTwoDeviceRegisterSameClub()
     {
         $clubName = 'Super cars';
         $password = self::randomString(10);
@@ -92,12 +92,9 @@ class ClubTest extends BaseTestCase
 
     public function registerClub($identifier, $clubId, $clubName, $password)
     {
-        $idRequest = ['identifier' => $identifier];
         $club = ['clubId' => $clubId, 'name' => $clubName, 'password' => $password];
-        $clubs = ['clubs' => [$club]];
-        $requestClubs = [$idRequest, $clubs];
-        //$this->show($requestClubs);
-
+        $requestClubs = array('identifier' => $identifier, 'clubs' => [$club]);
+        // $this->show(json_encode($requestClubs));
         return $this->runApp('POST', '/club', $requestClubs);
     }
 }

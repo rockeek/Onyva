@@ -1,3 +1,40 @@
+TODO: fix json input for other services (than club)
+
+24/8/2017
+Now Club registration is like:
+{
+   "identifier":"aaabbb",
+   "clubs":[
+	     {
+	        "clubId":"10000",
+	        "password":"FirstDummy"
+	     },
+	     {
+	        "name":"newClub",
+	        "password":"FirstDummy"
+	     }
+	]
+}
+
+
+3/7/2017
+Implement CASE 6:
+#Case 6a
+Given Remy is in Xsara car
+  And Opel car has free seats
+ When Remy moves from Xsara to Opel
+ Then Remy is unlinked with Xsara
+  And Remy is linked to Opel
+  
+#Case 6b
+Given Remy is in Xsara car
+  And Opel car has no more free seats
+ When Remy moves from Xsara to Opel
+ Then Remy is unlinked with Xsara
+  And Remy is linked to Sidewalk
+  And A message says the Opel car had no more seats
+
+
 2/4/17 - Too many Clubs can be created with that request. This would create 2 new clubs.
 The same identifier should not be able to create new clubs too quickly!
 This should be avoided too:
@@ -21,21 +58,3 @@ POST /club
       ]
    }
 ]
-
-
-3/7/2017
-Implement CASE 6:
-#Case 6a
-Given Remy is in Xsara car
-  And Opel car has free seats
- When Remy moves from Xsara to Opel
- Then Remy is unlinked with Xsara
-  And Remy is linked to Opel
-  
-#Case 6b
-Given Remy is in Xsara car
-  And Opel car has no more free seats
- When Remy moves from Xsara to Opel
- Then Remy is unlinked with Xsara
-  And Remy is linked to Sidewalk
-  And A message says the Opel car had no more seats
