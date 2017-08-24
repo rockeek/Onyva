@@ -79,10 +79,9 @@ class TravelTest extends BaseTestCase
         // No identifier at all
         $clubId = 10001;
         $clubPassword = 'boing';
-        $idRequest = ['clubId' => $clubId, 'clubPassword' => $clubPassword];
+        $requestBody = array('clubId' => $clubId, 'clubPassword' => $clubPassword, 'travels' => [array('date' => '2015-10-10', 'time' => '10:10:00')]);
+        // $this->show(json_encode($requestBody));
 
-        $travels = ['travels' => [['date' => '2015-10-10', 'time' => '10:10:00']]];
-        $requestBody = [$idRequest, $travels];
         $response = $this->runApp('POST', '/settravel', $requestBody);
         $this->assertEquals(406, $response->getStatusCode());
 
@@ -90,10 +89,9 @@ class TravelTest extends BaseTestCase
         $identifier = 'idontexist';
         $clubId = 10001;
         $clubPassword = 'boing';
-        $idRequest = ['identifier' => $identifier, 'clubId' => $clubId, 'clubPassword' => $clubPassword];
 
-        $travels = ['travels' => [['date' => '2015-10-10', 'time' => '10:10:00']]];
-        $requestBody = [$idRequest, $travels];
+        $requestBody = array('identifier' => $identifier, 'clubId' => $clubId, 'clubPassword' => $clubPassword,
+            'travels' => [array('date' => '2015-10-10', 'time' => '10:10:00')], );
         $response = $this->runApp('POST', '/settravel', $requestBody);
         $this->assertEquals(406, $response->getStatusCode());
     }
@@ -116,11 +114,9 @@ class TravelTest extends BaseTestCase
         $travelId = $travel['travelId'];
 
         // In club 10001, try to modify travel of club 10002
-        $idRequest = ['identifier' => 'aaabbb', 'clubId' => 10001, 'clubPassword' => 'boing'];
-        $travel['day'] = 'WEDNESDAY'; // we change travel to update
-        $travels = ['travels' => [$travel]];
-        $requestBody = [$idRequest, $travels];
+        $requestBody = array('identifier' => 'aaabbb', 'clubId' => 10001, 'clubPassword' => 'boing', 'travels' => [array('day' => 'WEDNESDAY')]); // we change travel to update
         //$this->show(json_encode($requestBody));
+
         $response = $this->runApp('POST', '/settravel', $requestBody);
         $this->assertEquals(200, $response->getStatusCode());
 
@@ -150,10 +146,10 @@ class TravelTest extends BaseTestCase
         $clubPassword = 'boing';
         $idRequest = ['identifier' => $identifier, 'clubId' => $clubId, 'clubPassword' => $clubPassword];
 
-        $travels = ['travels' => [['day' => 'SUNDAY', 'time' => '12:12:00'], ['date' => '2016-10-30', 'time' => '12:13:00']]];
-
-        $requestBody = [$idRequest, $travels];
+        $travels = [array('day' => 'SUNDAY', 'time' => '12:12:00'), array('date' => '2016-10-30', 'time' => '12:13:00')];
+        $requestBody = array('identifier' => $identifier, 'clubId' => $clubId, 'clubPassword' => $clubPassword, 'travels' => $travels);
         //$this->show(json_encode($requestBody));
+
         $response = $this->runApp('POST', '/settravel', $requestBody);
 
         $this->assertEquals(200, $response->getStatusCode());
@@ -163,17 +159,17 @@ class TravelTest extends BaseTestCase
         $created1 = $body[$bodyCount - 2];
         $created2 = $body[$bodyCount - 1];
 
-        $this->assertEquals($travels['travels'][0]['day'], $created1['day']);
-        $this->assertEquals($travels['travels'][0]['time'], $created1['time']);
-        $this->assertEquals($travels['travels'][0]['date'], $created1['date']);
+        $this->assertEquals($travels[0]['day'], $created1['day']);
+        $this->assertEquals($travels[0]['time'], $created1['time']);
+        $this->assertEquals($travels[0]['date'], $created1['date']);
 
-        $this->assertEquals($travels['travels'][1]['day'], $created2['day']);
-        $this->assertEquals($travels['travels'][1]['time'], $created2['time']);
-        $this->assertEquals($travels['travels'][1]['date'], $created2['date']);
+        $this->assertEquals($travels[1]['day'], $created2['day']);
+        $this->assertEquals($travels[1]['time'], $created2['time']);
+        $this->assertEquals($travels[1]['date'], $created2['date']);
 
         // Try to create a travel that already exists: none is created
-        $travels = ['travels' => [$travels['travels'][0]]];
-        $requestBody = [$idRequest, $travels];
+        $travels = [array($travels['travels'][0])];
+        $requestBody = array('identifier' => $identifier, 'clubId' => $clubId, 'clubPassword' => $clubPassword, 'travels' => $travels);
         $response = $this->runApp('POST', '/settravel', $requestBody);
 
         $this->assertEquals(200, $response->getStatusCode());
@@ -181,9 +177,9 @@ class TravelTest extends BaseTestCase
         $this->assertEquals($bodyCount, count($body)); // Number of travels is the same
 
         // Create another different travel with date only
-        $otherTravel = ['date' => '2012-12-12', 'time' => '12:12:00'];
-        $travels = ['travels' => [$otherTravel]];
-        $requestBody = [$idRequest, $travels];
+        $otherTravel = array('date' => '2012-12-12', 'time' => '12:12:00');
+        $travels = [$otherTravel];
+        $requestBody = array('identifier' => $identifier, 'clubId' => $clubId, 'clubPassword' => $clubPassword, 'travels' => $travels);
         $response = $this->runApp('POST', '/settravel', $requestBody);
 
         $this->assertEquals(200, $response->getStatusCode());
@@ -194,9 +190,9 @@ class TravelTest extends BaseTestCase
         $bodyCount = count($body); // Update bodyCount
 
         // Create another different travel with day only
-        $otherTravel = ['day' => 'TUESDAY', 'time' => '09:09:00'];
-        $travels = ['travels' => [$otherTravel]];
-        $requestBody = [$idRequest, $travels];
+        $otherTravel = array('day' => 'TUESDAY', 'time' => '09:09:00');
+        $travels = [$otherTravel];
+        $requestBody = array('identifier' => $identifier, 'clubId' => $clubId, 'clubPassword' => $clubPassword, 'travels' => $travels);
         $response = $this->runApp('POST', '/settravel', $requestBody);
 
         $this->assertEquals(200, $response->getStatusCode());

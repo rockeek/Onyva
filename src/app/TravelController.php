@@ -45,30 +45,27 @@ class TravelController extends Controller
      * Security: discard request if identifier, clubId and clubPassword are wrong.
      * Each travel will be checked individually for rights to modify them
      *
-     *[
-     *   {
-     *      "identifier":"aaabbb",
-     *      "clubId":"10001",
-     *      "clubPassword":"boing"
-     *   },
-     *   {
-     *      "travels":[
-     *         {
-     *            "travelId":"1",
-     *            "day":"MONDAY",
-     *            "time":"08:00"
-     *         },
-     *         {
-     *            "travelId":"2",
-     *            "date":"2017-12-17",
-     *            "time":"17:30"
-     *         },
-     *         {
-     *            "day":"TUESDAY",
-     *            "time":"17:30"
-     *         }
-     *      ]
-     *   }
+     * {
+     *    "identifier":"aaabbb",
+     *    "clubId":"10001",
+     *    "clubPassword":"boing",
+     *    "travels":[
+     *       {
+     *          "travelId":"1",
+     *          "day":"MONDAY",
+     *          "time":"08:00"
+     *       },
+     *       {
+     *          "travelId":"2",
+     *          "date":"2017-12-17",
+     *          "time":"17:30"
+     *       },
+     *       {
+     *          "day":"TUESDAY",
+     *          "time":"17:30"
+     *       }
+     *    ]
+     * }
      *
      * @return \Slim\Http\Response
      */
@@ -78,9 +75,9 @@ class TravelController extends Controller
         $requestTravels = $request->getParsedBody();
 
         // device should already be registered to create or update vehicules
-        $identifier = $requestTravels[0]['identifier'];
-        $clubId = $requestTravels[0]['clubId'];
-        $clubPassword = $requestTravels[0]['clubPassword'];
+        $identifier = $requestTravels['identifier'];
+        $clubId = $requestTravels['clubId'];
+        $clubPassword = $requestTravels['clubPassword'];
 
         $deviceId = $this->getDeviceIdFromIdentifier($identifier);
         if ($deviceId == null || !isset($clubId) || !isset($clubPassword)) {
@@ -105,7 +102,7 @@ class TravelController extends Controller
 
         $travelsResponse = array();
 
-        foreach ($requestTravels[1]['travels'] as $travel) {
+        foreach ($requestTravels['travels'] as $travel) {
             if (isset($travel['time'])) {
                 if (isset($travel['travelId'])) {
                     $this->info($this->updateTravel($travel['travelId'], $clubId, $clubPassword, $travel['date'], $travel['day'], $travel['time']));

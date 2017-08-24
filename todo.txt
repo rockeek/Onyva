@@ -1,4 +1,4 @@
-TODO: fix json input for other services (than club)
+TODO: fix json input for other services (than club, passengers, vehicules, travel)
 
 24/8/2017
 Now Club registration is like:
