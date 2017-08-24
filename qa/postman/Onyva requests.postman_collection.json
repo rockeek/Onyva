@@ -161,7 +161,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n   {\r\n      \"identifier\":\"aaabbb\"\r\n   },\r\n   {\r\n      \"vehicules\":[\r\n         {\r\n        \"vehiculeId\": 1,\r\n        \"name\": \"Xsara Rémy\",\r\n        \"trademark\": \"Citroën Xsara\",\r\n        \"color\": \"Verte\",\r\n        \"seats\": 5\r\n         },\r\n         {\r\n            \"name\": \"Golf 4\",\r\n            \"trademark\": \"Wolkswagen\",\r\n            \"color\": \"Rouge\",\r\n            \"seats\": 2\r\n         }\r\n      ]\r\n   }\r\n]"
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"vehicules\":[\r\n     {\r\n\t    \"vehiculeId\": 1,\r\n\t    \"name\": \"Xsara Rémy\",\r\n\t    \"trademark\": \"Citroën Xsara\",\r\n\t    \"color\": \"Verte\",\r\n\t    \"seats\": 5\r\n     },\r\n     {\r\n        \"name\": \"Golf 4\",\r\n        \"trademark\": \"Wolkswagen\",\r\n        \"color\": \"Rouge\",\r\n        \"seats\": 2\r\n     }\r\n  ]\r\n}\r\n"
 				},
 				"description": ""
 			},
@@ -181,7 +181,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n   {\r\n      \"identifier\":\"idontexist\"\r\n   },\r\n   {\r\n      \"vehicules\":[\r\n         {\r\n            \"vehiculeId\": \"1\",\r\n\t        \"name\": \"Xsara Rémy cassée\",\r\n\t        \"trademark\": \"Citroën Xsara 1.9\",\r\n\t        \"color\": \"Orange\",\r\n\t        \"seats\": \"3\"\r\n         },\r\n         {\r\n\t        \"name\": \"Voiture de collection\",\r\n\t        \"trademark\": \"Mercedes\",\r\n\t        \"color\": \"Blanche\",\r\n\t        \"seats\": \"5\"\r\n         }\r\n      ]\r\n   }\r\n]"
+					"raw": "{\r\n  \"identifier\":\"idontexist\",\r\n  \"vehicules\":[\r\n     {\r\n    \t\"vehiculeId\": \"1\",\r\n\t    \"name\": \"Xsara Rémy cassée\",\r\n\t    \"trademark\": \"Citroën Xsara 1.9\",\r\n\t    \"color\": \"Orange\",\r\n\t    \"seats\": \"3\"\r\n     },\r\n     {\r\n        \"name\": \"Voiture de collection\",\r\n\t    \"trademark\": \"Mercedes\",\r\n\t    \"color\": \"Blanche\",\r\n\t    \"seats\": \"5\"\r\n     }\r\n  ]\r\n}"
 				},
 				"description": ""
 			},
@@ -261,7 +261,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n   {\r\n      \"identifier\":\"aaabbb\",\r\n      \"clubId\":\"10001\",\r\n      \"clubPassword\":\"boing\"\r\n   },\r\n   {\r\n      \"travels\":[\r\n         {\r\n            \"travelId\":\"1\",\r\n            \"day\":\"THURSDAY\",\r\n            \"time\":\"08:20\"\r\n         },\r\n         {\r\n            \"travelId\":\"2\",\r\n            \"date\":\"2017-12-18\",\r\n            \"time\":\"17:25\"\r\n         },\r\n         {\r\n            \"date\":\"2017-12-18\",\r\n            \"time\":\"17:25\"\r\n         },\r\n         {\r\n            \"day\":\"MONDAY\",\r\n            \"time\":\"08:20\"\r\n         },\r\n         {\r\n           \"date\":null,\r\n            \"day\":\"THURSDAY\",\r\n            \"time\":\"08:25\"\r\n         }\r\n      ]\r\n   }\r\n]"
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travels\":[\r\n     {\r\n        \"travelId\":\"1\",\r\n        \"day\":\"THURSDAY\",\r\n        \"time\":\"08:20\"\r\n     },\r\n     {\r\n        \"travelId\":\"2\",\r\n        \"date\":\"2017-12-18\",\r\n        \"time\":\"17:25\"\r\n     },\r\n     {\r\n        \"date\":\"2017-12-18\",\r\n        \"time\":\"17:25\"\r\n     },\r\n     {\r\n        \"day\":\"MONDAY\",\r\n        \"time\":\"08:20\"\r\n     },\r\n     {\r\n       \"date\":null,\r\n        \"day\":\"THURSDAY\",\r\n        \"time\":\"08:25\"\r\n     }\r\n  ]\r\n}"
 				},
 				"description": ""
 			},
