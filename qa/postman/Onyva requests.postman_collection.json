@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Onyva requests",
-		"_postman_id": "be5cd981-0080-30ec-13bf-c56a606bce76",
+		"_postman_id": "ed57a97e-80d2-7c08-b0b6-2e6d5cdeb1ca",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -41,14 +41,14 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n   {\r\n      \"identifier\":\"aaabbb\"\r\n   },\r\n   {\r\n      \"clubs\":[\r\n         {\r\n            \"clubId\":\"10000\",\r\n            \"password\":\"FirstDummy\"\r\n         },\r\n         {\r\n            \"name\":\"newClub\",\r\n            \"password\":\"FirstDummy\"\r\n         }\r\n      ]\r\n   }\r\n]"
+					"raw": "{\r\n   \"identifier\":\"aaabbb\",\r\n   \"clubs\":[\r\n\t     {\r\n\t        \"clubId\":\"10000\",\r\n\t        \"password\":\"FirstDummy\"\r\n\t     },\r\n\t     {\r\n\t        \"name\":\"newClub\",\r\n\t        \"password\":\"FirstDummy\"\r\n\t     }\r\n\t]\r\n}"
 				},
 				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "GetPassengers via POST",
+			"name": "Passengers Get via POST",
 			"request": {
 				"url": "https://hphp-rockeek.c9users.io/getpassenger",
 				"method": "POST",
@@ -81,7 +81,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n   {\r\n      \"identifier\":\"aaabbb\"\r\n   },\r\n   {\r\n      \"passengers\":[\r\n         {\r\n            \"passengerId\":2,\r\n            \"name\":\"Fifoo\"\r\n         },\r\n         {\r\n            \"name\":\"Kiko\"\r\n         }\r\n      ]\r\n   }\r\n]"
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"passengers\":[\r\n     {\r\n        \"passengerId\":2,\r\n        \"name\":\"Fifoo\"\r\n     },\r\n     {\r\n        \"name\":\"Kiko\"\r\n     }\r\n  ]\r\n}\r\n"
 				},
 				"description": ""
 			},
@@ -101,7 +101,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n   {\r\n      \"identifier\":\"idontexist\"\r\n   },\r\n   {\r\n      \"passengers\":[\r\n         {\r\n            \"passengerId\":2,\r\n            \"name\":\"Another man that is not good\"\r\n         },\r\n         {\r\n            \"name\":\"User that should not be created\"\r\n         }\r\n      ]\r\n   }\r\n]"
+					"raw": "{\r\n  \"identifier\":\"idontexist\",\r\n  \"passengers\":[\r\n     {\r\n        \"passengerId\":2,\r\n        \"name\":\"Another man that is not good\"\r\n     },\r\n     {\r\n        \"name\":\"User that should not be created\"\r\n     }\r\n  ]\r\n}"
 				},
 				"description": ""
 			},
@@ -121,14 +121,14 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n   {\r\n      \"identifier\":\"aaabbb\"\r\n   },\r\n   {\r\n      \"passengers\":[\r\n         {\r\n            \"passengerId\":1,\r\n            \"name\":\"Poulet\"\r\n         },\r\n         {\r\n            \"passengerId\":2,\r\n            \"name\":\"Grille\"\r\n         }\r\n      ]\r\n   }\r\n]"
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"passengers\":[\r\n     {\r\n        \"passengerId\":1,\r\n        \"name\":\"Poulet\"\r\n     },\r\n     {\r\n        \"passengerId\":2,\r\n        \"name\":\"Grille\"\r\n     }\r\n  ]\r\n}"
 				},
 				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "GetVehicules via POST",
+			"name": "Vehicules Get via POST",
 			"request": {
 				"url": "https://hphp-rockeek.c9users.io/getvehicule",
 				"method": "POST",
@@ -188,7 +188,7 @@
 			"response": []
 		},
 		{
-			"name": "GetTravels",
+			"name": "Travels Get",
 			"request": {
 				"url": "https://hphp-rockeek.c9users.io/gettravel",
 				"method": "POST",
@@ -208,7 +208,7 @@
 			"response": []
 		},
 		{
-			"name": "GetTravels with filter day",
+			"name": "Travels Get with filter day",
 			"request": {
 				"url": "https://hphp-rockeek.c9users.io/gettravel/friday",
 				"method": "POST",
@@ -228,7 +228,7 @@
 			"response": []
 		},
 		{
-			"name": "GetTravels with filter day and time",
+			"name": "Travels Get with filter day and time",
 			"request": {
 				"url": "https://hphp-rockeek.c9users.io/gettravel/friday/18:15",
 				"method": "POST",
@@ -248,7 +248,7 @@
 			"response": []
 		},
 		{
-			"name": "SetTravels",
+			"name": "Travels Set",
 			"request": {
 				"url": "https://hphp-rockeek.c9users.io/settravel",
 				"method": "POST",
@@ -268,7 +268,7 @@
 			"response": []
 		},
 		{
-			"name": "GetTravelsClub10002",
+			"name": "TravelsClub Get 10002",
 			"request": {
 				"url": "https://hphp-rockeek.c9users.io/gettravel",
 				"method": "POST",
@@ -288,7 +288,7 @@
 			"response": []
 		},
 		{
-			"name": "GetTravelsClub10001",
+			"name": "TravelsClub Get 10001",
 			"request": {
 				"url": "https://hphp-rockeek.c9users.io/gettravel",
 				"method": "POST",
@@ -308,7 +308,7 @@
 			"response": []
 		},
 		{
-			"name": "GetLinks For TravelId=1",
+			"name": "Links Get For TravelId=1",
 			"request": {
 				"url": "https://hphp-rockeek.c9users.io/getlink",
 				"method": "POST",
@@ -328,7 +328,7 @@
 			"response": []
 		},
 		{
-			"name": "GetLinks For TravelId=2",
+			"name": "Links Get For TravelId=2",
 			"request": {
 				"url": "https://hphp-rockeek.c9users.io/getlink",
 				"method": "POST",
@@ -348,7 +348,7 @@
 			"response": []
 		},
 		{
-			"name": "SetLinks CASE1 - Alexandra offers her car with herself",
+			"name": "Links Set CASE1 - Alexandra offers her car with herself",
 			"event": [
 				{
 					"listen": "test",
@@ -381,7 +381,7 @@
 			"response": []
 		},
 		{
-			"name": "SetLinks CASE1 faulty - Alexandra offers a car of another device",
+			"name": "Links Set CASE1 faulty - Alexandra offers a car of another device",
 			"event": [
 				{
 					"listen": "test",
@@ -413,7 +413,7 @@
 			"response": []
 		},
 		{
-			"name": "SetLinks CASE2 - Noémie tries to offer her car without driver",
+			"name": "Links Set CASE2 - Noémie tries to offer her car without driver",
 			"event": [
 				{
 					"listen": "test",
@@ -445,7 +445,7 @@
 			"response": []
 		},
 		{
-			"name": "SetLinks CASE2 faulty - Noémie tries to offer someone else's car without driver",
+			"name": "Links Set CASE2 faulty - Noémie tries to offer someone else's car without driver",
 			"event": [
 				{
 					"listen": "test",
@@ -477,7 +477,7 @@
 			"response": []
 		},
 		{
-			"name": "SetLinks CASE3 - Deborah to Xsara",
+			"name": "Links Set CASE3 - Deborah to Xsara",
 			"event": [
 				{
 					"listen": "test",
@@ -510,7 +510,7 @@
 			"response": []
 		},
 		{
-			"name": "SetLinks CASE4 - Lisa goes waiting as a lonely passenger",
+			"name": "Links Set CASE4 - Lisa goes waiting as a lonely passenger",
 			"event": [
 				{
 					"listen": "test",
@@ -542,7 +542,7 @@
 			"response": []
 		},
 		{
-			"name": "SetLinks CASE4 faulty - Lisa try to set Deborah to go waiting as a lonely passenger",
+			"name": "Links Set CASE4 faulty - Lisa try to set Deborah to go waiting as a lonely passenger",
 			"event": [
 				{
 					"listen": "test",
@@ -574,7 +574,7 @@
 			"response": []
 		},
 		{
-			"name": "SetLinks CASE4 faulty TravelId2 - Lisa try to set Deborah to go waiting as a lonely passenger",
+			"name": "Links Set CASE4 faulty TravelId2 - Lisa try to set Deborah to go waiting as a lonely passenger",
 			"event": [
 				{
 					"listen": "test",
@@ -606,7 +606,7 @@
 			"response": []
 		},
 		{
-			"name": "SetLinks CASE5 - Former lonely Alexandra goes to Xsara",
+			"name": "Links Set CASE5 - Former lonely Alexandra goes to Xsara",
 			"event": [
 				{
 					"listen": "test",
@@ -638,7 +638,7 @@
 			"response": []
 		},
 		{
-			"name": "SetLinks CASE5b - XsaraOwnerTakesInLonelyNoemie (travelId=2)",
+			"name": "Links Set CASE5b - XsaraOwnerTakesInLonelyNoemie (travelId=2)",
 			"event": [
 				{
 					"listen": "test",
@@ -670,7 +670,7 @@
 			"response": []
 		},
 		{
-			"name": "SetLinks CASE5c - NoemieExistsXsaraCarToSidewalk (travelId=2)",
+			"name": "Links Set CASE5c - NoemieExistsXsaraCarToSidewalk (travelId=2)",
 			"event": [
 				{
 					"listen": "test",
@@ -702,7 +702,7 @@
 			"response": []
 		},
 		{
-			"name": "SetLinks CASE5d - XsaraDriverKicksOutLisa (travelId=2)",
+			"name": "Links Set CASE5d - XsaraDriverKicksOutLisa (travelId=2)",
 			"event": [
 				{
 					"listen": "test",
