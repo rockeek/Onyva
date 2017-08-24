@@ -45,17 +45,16 @@ class PassengerTest extends BaseTestCase
         $name1 = $this->randomString(12);
         $name2 = $this->randomString(12);
 
-        $idRequest = ['identifier' => $identifier];
         $passenger1 = ['name' => $name1];
         $passenger2 = ['name' => $name2];
-        $passengers = ['passengers' => [$passenger1, $passenger2]];
-        $requestPassengers = [$idRequest, $passengers];
+        $requestPassengers = array('identifier' => $identifier, 'passengers' => [$passenger1, $passenger2]);
 
         $response = $this->runApp('POST', '/setpassenger', $requestPassengers);
         $json = json_decode($response->getBody(), true);
 
-        //$this->show($requestPassengers);
+        //$this->show(json_encode($requestPassengers));
         //$this->show($json);
+
         $this->assertEquals(200, $response->getStatusCode());
 
         $jsonString = json_encode($json);
@@ -77,13 +76,13 @@ class PassengerTest extends BaseTestCase
         $passenger1['name'] = $newName1;
         $passenger2['name'] = $newName2;
 
-        $passengers = ['passengers' => [$passenger1, $passenger2]];
-        $requestPassengers = [$idRequest, $passengers];
+        $requestPassengers = array('identifier' => $identifier, 'passengers' => [$passenger1, $passenger2]);
         $response = $this->runApp('POST', '/setpassenger', $requestPassengers);
         $json = json_decode($response->getBody(), true);
 
         //$this->show($requestPassengers);
         //$this->show($json);
+
         $this->assertEquals(200, $response->getStatusCode());
         $jsonString = json_encode($json);
         $this->assertNotContains($name1, $jsonString);

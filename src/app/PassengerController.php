@@ -38,11 +38,8 @@ class PassengerController extends Controller
      *
      * Json body request like:
      *
-     * [
-     *  {
-     *    "identifier":"47gV61SUd3AraOCkNIvPwKDoQZynzJjFt9qXW0i8mLfMHxe5buhYEsR2GBcTpl"
-     *  },
-     *  {
+     *{
+     *    "identifier":"47gV61SUd3AraOCkNIvPwKDoQZynzJjFt9qXW0i8mLfMHxe5buhYEsR2GBcTpl",
      *    "passengers":[
      *      {
      *          "passengerId": "1",
@@ -55,9 +52,8 @@ class PassengerController extends Controller
      *      {
      *          "name":"Nouveau passager"
      *      }
-     *    ]
-     *  }
-     * ]
+     *     ]
+     *}
      *
      * @return \Slim\Http\Response
      */
@@ -67,7 +63,7 @@ class PassengerController extends Controller
         $requestPassengers = $request->getParsedBody();
 
         // device should already be registered to create or update passengers
-        $identifier = $requestPassengers[0]['identifier'];
+        $identifier = $requestPassengers['identifier'];
 
         $deviceId = $this->getDeviceIdFromIdentifier($identifier);
         if ($deviceId == null) {
@@ -76,7 +72,7 @@ class PassengerController extends Controller
 
         $passengersResponse = array();
 
-        foreach ($requestPassengers[1]['passengers'] as $passenger) {
+        foreach ($requestPassengers['passengers'] as $passenger) {
             if (isset($passenger['name'])) {
                 if (isset($passenger['passengerId'])) {
                     $this->info($this->updatePassenger($deviceId, $passenger['passengerId'], $passenger['name']));
