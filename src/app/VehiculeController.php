@@ -68,8 +68,6 @@ class VehiculeController extends Controller
             return $response->withStatus(406);
         }
 
-        $vehiculesResponse = array();
-
         foreach ($requestVehicules['vehicules'] as $vehicule) {
             if (isset($vehicule['name'])) {
                 if (isset($vehicule['vehiculeId'])) { // Try to update. The updateVehicule contains the security. It will not update if the deviceId is not the good one
@@ -79,6 +77,27 @@ class VehiculeController extends Controller
                 }
             }
         }
+
+        $vehicules = $this->internalGetVehicules($identifier);
+
+        return $response->withJson($vehicules, 200);
+    }
+
+    public function deleteVehicule($request, $response, $args)
+    {
+        $this->logMe(get_class(), __FUNCTION__, $args);
+        $request = $request->getParsedBody();
+
+        // device should already be registered to create or update vehicules
+        $identifier = $request['identifier'];
+
+        $deviceId = $this->getDeviceIdFromIdentifier($identifier);
+        if ($deviceId == null) {
+            return $response->withStatus(406);
+        }
+
+        $vehiculeId = $request['vehiculeId'];
+        $this->info($this->internalDeleteVehicule($deviceId, $vehiculeId));
 
         $vehicules = $this->internalGetVehicules($identifier);
 
@@ -119,6 +138,26 @@ class VehiculeController extends Controller
             $query->execute();
 
             return "Vehicule updated: '$name'".$query->rowCount() == 1 ? 'succeeded.' : 'failed.';
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    /**
+     * Delete Vehicule.
+     * Security: The deviceId must be correct to be able to modify a vehicule.
+     */
+    private function internalDeleteVehicule($deviceId, $vehiculeId)
+    {
+        try {
+            $query = $this->db->prepare('DELETE from Vehicule
+                                    WHERE VehiculeId = :vehiculeId
+                                    AND DeviceId = :deviceId');
+            $query->bindParam(':deviceId', $deviceId);
+            $query->bindParam(':vehiculeId', $vehiculeId);
+            $query->execute();
+
+            return "Vehicule deleted: '$name'".$query->rowCount() == 1 ? 'succeeded.' : 'failed.';
         } catch (Exception $e) {
             return $e->getMessage();
         }

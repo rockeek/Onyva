@@ -8,6 +8,7 @@ $app->post('/setpassenger', 'App\PassengerController:updatePassengers');
 
 $app->post('/getvehicule', 'App\VehiculeController:getVehicules');
 $app->post('/setvehicule', 'App\VehiculeController:updateVehicules');
+$app->post('/deletevehicule', 'App\VehiculeController:deleteVehicule');
 
 $app->post('/gettravel', App\TravelController::class.':getTravels');
 $app->post('/gettravel/[{day:[a-z]{1,9}}[/{time:[0-9]{1,2}\:[0-9]{1,2}}]]', 'App\TravelController:getTravels');
