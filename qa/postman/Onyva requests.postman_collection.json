@@ -68,6 +68,26 @@
 			"response": []
 		},
 		{
+			"name": "Vehicules Delete via POST",
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/deletevehicule",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"vehiculeId\": 1\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
 			"name": "Passengers create and update",
 			"request": {
 				"url": "https://hphp-rockeek.c9users.io/setpassenger",
