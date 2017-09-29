@@ -5,6 +5,7 @@ $app->post('/device', 'App\DeviceController:device');
 $app->post('/club', 'App\ClubController:club');
 $app->post('/getpassenger', 'App\PassengerController:getPassengers');
 $app->post('/setpassenger', 'App\PassengerController:updatePassengers');
+$app->post('/deletepassenger', 'App\PassengerController:deletePassenger');
 
 $app->post('/getvehicule', 'App\VehiculeController:getVehicules');
 $app->post('/setvehicule', 'App\VehiculeController:updateVehicules');

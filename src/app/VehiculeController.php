@@ -96,8 +96,7 @@ class VehiculeController extends Controller
             return $response->withStatus(406);
         }
 
-        $vehiculeId = $request['vehiculeId'];
-        $this->info($this->internalDeleteVehicule($deviceId, $vehiculeId));
+        $this->info($this->internalDeleteVehicule($deviceId, $request['vehiculeId']));
 
         $vehicules = $this->internalGetVehicules($identifier);
 

@@ -4,14 +4,12 @@ namespace App;
 
 class Passenger
 {
-    /*protected $db;*/
     private $deviceId;
     public $passengerId;
     public $passengerName;
 
-/*    public function __construct($db, $deviceId)
+    public function __construct()
     {
-        $this->db = $db;
-        $this->deviceId = $deviceId;
-    }*/
+        $this->passengerId = intval($this->passengerId);
+    }
 }

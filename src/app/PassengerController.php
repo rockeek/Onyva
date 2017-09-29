@@ -70,8 +70,6 @@ class PassengerController extends Controller
             return $response->withStatus(406);
         }
 
-        $passengersResponse = array();
-
         foreach ($requestPassengers['passengers'] as $passenger) {
             if (isset($passenger['name'])) {
                 if (isset($passenger['passengerId'])) {
@@ -81,6 +79,26 @@ class PassengerController extends Controller
                 }
             }
         }
+
+        $passengers = $this->internalGetPassengers($identifier);
+
+        return $response->withJson($passengers, 200);
+    }
+
+    public function deletePassenger($request, $response, $args)
+    {
+        $this->logMe(get_class(), __FUNCTION__, $args);
+        $requestPassengers = $request->getParsedBody();
+
+        // device should already be registered to create or update passengers
+        $identifier = $requestPassengers['identifier'];
+
+        $deviceId = $this->getDeviceIdFromIdentifier($identifier);
+        if ($deviceId == null) {
+            return $response->withStatus(406);
+        }
+
+        $this->info($this->internalDeletePassenger($deviceId, $requestPassengers['passengerId']));
 
         $passengers = $this->internalGetPassengers($identifier);
 
@@ -98,16 +116,16 @@ class PassengerController extends Controller
         $getQuery->bindParam(':identifier', $identifier);
         $getQuery->execute();
 
-        $passengers = array();
+        // $passengers = array();
 
-        return $getQuery->fetchAll();
+        return $getQuery->fetchAll(\PDO::FETCH_CLASS, 'App\\Passenger');
     }
 
     private function updatePassenger($deviceId, $passengerId, $name)
     {
         try {
             $query = $this->db->prepare('UPDATE Passenger SET
-                                    PassengerName=:name
+                                    PassengerName= :name
                                     WHERE PassengerId = :passengerId
                                     AND DeviceId = :deviceId');
             $query->bindParam(':name', $name);
@@ -136,6 +154,27 @@ class PassengerController extends Controller
             $isSuccess = $query->rowCount() == 1;
 
             return "Passenger created: '$name'".$query->rowCount() == 1 ? 'succeeded.' : 'failed.';
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    /**
+     * Delete Passenger.
+     * Security: The deviceId must be correct to be able to modify a passenger.
+     */
+    private function internalDeletePassenger($deviceId, $passengerId)
+    {
+        try {
+            $query = $this->db->prepare('DELETE from Passenger
+                                    WHERE PassengerId = :passengerId
+                                    AND DeviceId = :deviceId');
+            $query->bindParam(':passengerId', $passengerId);
+            $query->bindParam(':deviceId', $deviceId);
+
+            $query->execute();
+
+            return "Passenger deleted: '$name'".$query->rowCount() == 1 ? 'succeeded.' : 'failed.';
         } catch (Exception $e) {
             return $e->getMessage();
         }
