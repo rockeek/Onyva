@@ -21,7 +21,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n   \"os\":\"Android\",\r\n   \"version\":\"1\",\r\n   \"identifier\":\"abc1234\"\r\n}"
+					"raw": "{\n   \"os\":\"Android\",\n   \"version\":1,\n   \"identifier\":\"abc1234\"\n}"
 				},
 				"description": ""
 			},
@@ -68,9 +68,9 @@
 			"response": []
 		},
 		{
-			"name": "Vehicules Delete via POST",
+			"name": "Passengers Delete via POST",
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/deletevehicule",
+				"url": "https://hphp-rockeek.c9users.io/deletepassenger",
 				"method": "POST",
 				"header": [
 					{
@@ -81,7 +81,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"vehiculeId\": 1\r\n}\r\n"
+					"raw": "{\r\n   \"identifier\":\"aaabbb\",\r\n   \"passengerId\":2\r\n}"
 				},
 				"description": ""
 			},
@@ -202,6 +202,26 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n  \"identifier\":\"idontexist\",\r\n  \"vehicules\":[\r\n     {\r\n    \t\"vehiculeId\": \"1\",\r\n\t    \"name\": \"Xsara Rémy cassée\",\r\n\t    \"trademark\": \"Citroën Xsara 1.9\",\r\n\t    \"color\": \"Orange\",\r\n\t    \"seats\": \"3\"\r\n     },\r\n     {\r\n        \"name\": \"Voiture de collection\",\r\n\t    \"trademark\": \"Mercedes\",\r\n\t    \"color\": \"Blanche\",\r\n\t    \"seats\": \"5\"\r\n     }\r\n  ]\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Vehicules Delete via POST",
+			"request": {
+				"url": "https://hphp-rockeek.c9users.io/deletevehicule",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"vehiculeId\": 1\r\n}\r\n"
 				},
 				"description": ""
 			},
