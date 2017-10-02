@@ -1,2 +1,4 @@
 logs
 vendor
+src/.php_cs.cache
+src/app/.php_cs.cache

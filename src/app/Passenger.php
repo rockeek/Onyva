@@ -4,9 +4,8 @@ namespace App;
 
 class Passenger
 {
-    private $deviceId;
     public $passengerId;
-    public $passengerName;
+    public $name;
 
     public function __construct()
     {

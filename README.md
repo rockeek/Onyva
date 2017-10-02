@@ -7,18 +7,22 @@ Server for Onyva Application.
 * Point your virtual host document root to your new application's `public/` directory.
 * Ensure `logs/` is web writeable.
 
-To run the application in development, you can also run this command. 
+Setup Mysql. Create a database with a user:
 
-	php composer.phar start
+#mysql -u root -p
+CREATE DATABASE onyva;
+CREATE USER 'onyva'@'localhost' IDENTIFIED BY 'Kass567Loo';
+GRANT ALL PRIVILEGES ON onyva . * TO 'onyva'@'localhost';
+FLUSH PRIVILEGES;
+
+To run the application in development, you can also run this command. 
+	php composer start
 
 Run this command to run the test suite
-
-	php composer.phar test
+	php composer test
 
 To restore database
-
-    php composer.phar restore
+    php composer restore
     
 To run all tests
-
-    php composer.phar testAll
+    php composer testAll

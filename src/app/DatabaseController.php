@@ -26,7 +26,7 @@ class DatabaseController
         $qaSettings = $container->get('settings')['qa'];
 
         $initDbSql = mb_convert_encoding(file_get_contents($qaSettings['dbInitSqlFile']), 'auto');
-        $qaDataSql = mb_convert_encoding(file_get_contents($qaSettings['dbInitQaDataSqlFile']), 'auto');
+        $qaDataSql = mb_convert_encoding(file_get_contents($qaSettings['dbInitQaDataSqlFile']), 'utf-8', 'utf-8'); // So that accents are kept in all systems
         $triggersSql = mb_convert_encoding(file_get_contents($qaSettings['dbTriggersSqlFile']), 'auto');
 
         $db = $container->get('db');
