@@ -7,13 +7,13 @@ Server for Onyva Application.
 * Point your virtual host document root to your new application's `public/` directory.
 * Ensure `logs/` is web writeable.
 
-Setup Mysql. Create a database with a user:
+## Setup Mysql. Create a database with a user:
 
-#mysql -u root -p
-CREATE DATABASE onyva;
-CREATE USER 'onyva'@'localhost' IDENTIFIED BY 'Kass567Loo';
-GRANT ALL PRIVILEGES ON onyva . * TO 'onyva'@'localhost';
-FLUSH PRIVILEGES;
+    #mysql -u root -p
+    CREATE DATABASE onyva;
+    CREATE USER 'onyva'@'localhost' IDENTIFIED BY 'Kass567Loo';
+    GRANT ALL PRIVILEGES ON onyva . * TO 'onyva'@'localhost';
+    FLUSH PRIVILEGES;
 
 To run the application in development, you can also run this command. 
 	php composer start
