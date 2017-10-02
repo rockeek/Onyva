@@ -16,13 +16,17 @@ Server for Onyva Application.
     FLUSH PRIVILEGES;
 
 To run the application in development, you can also run this command. 
-	php composer start
+
+    php composer start
 
 Run this command to run the test suite
+
 	php composer test
 
 To restore database
+
     php composer restore
     
 To run all tests
+
     php composer testAll
