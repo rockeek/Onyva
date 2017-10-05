@@ -10,7 +10,7 @@
 		{
 			"name": "Device register",
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/device",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/device",
 				"method": "POST",
 				"header": [
 					{
@@ -30,7 +30,7 @@
 		{
 			"name": "Clubs correct name/pass",
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/club",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/club",
 				"method": "POST",
 				"header": [
 					{
@@ -50,7 +50,7 @@
 		{
 			"name": "Passengers Get via POST",
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/getpassenger",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/getpassenger",
 				"method": "POST",
 				"header": [
 					{
@@ -70,7 +70,7 @@
 		{
 			"name": "Passengers Delete via POST",
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/deletepassenger",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/deletepassenger",
 				"method": "POST",
 				"header": [
 					{
@@ -90,7 +90,7 @@
 		{
 			"name": "Passengers create and update",
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/setpassenger",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/setpassenger",
 				"method": "POST",
 				"header": [
 					{
@@ -110,7 +110,7 @@
 		{
 			"name": "Passengers update fail because wrong identifier",
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/setpassenger",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/setpassenger",
 				"method": "POST",
 				"header": [
 					{
@@ -130,7 +130,7 @@
 		{
 			"name": "Passengers update",
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/setpassenger",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/setpassenger",
 				"method": "POST",
 				"header": [
 					{
@@ -150,7 +150,7 @@
 		{
 			"name": "Vehicules Get via POST",
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/getvehicule",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/getvehicule",
 				"method": "POST",
 				"header": [
 					{
@@ -170,7 +170,7 @@
 		{
 			"name": "Vehicules create and update copy",
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/setvehicule",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/setvehicule",
 				"method": "POST",
 				"header": [
 					{
@@ -190,7 +190,7 @@
 		{
 			"name": "Vehicules update fail because wrong identifier copy",
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/setvehicule",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/setvehicule",
 				"method": "POST",
 				"header": [
 					{
@@ -210,7 +210,7 @@
 		{
 			"name": "Vehicules Delete via POST",
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/deletevehicule",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/deletevehicule",
 				"method": "POST",
 				"header": [
 					{
@@ -230,7 +230,7 @@
 		{
 			"name": "Travels Get",
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/gettravel",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/gettravel",
 				"method": "POST",
 				"header": [
 					{
@@ -250,7 +250,7 @@
 		{
 			"name": "Travels Get with filter day",
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/gettravel/friday",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/gettravel/friday",
 				"method": "POST",
 				"header": [
 					{
@@ -270,7 +270,7 @@
 		{
 			"name": "Travels Get with filter day and time",
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/gettravel/friday/18:15",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/gettravel/friday/18:15",
 				"method": "POST",
 				"header": [
 					{
@@ -290,7 +290,7 @@
 		{
 			"name": "Travels Set",
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/settravel",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/settravel",
 				"method": "POST",
 				"header": [
 					{
@@ -310,7 +310,7 @@
 		{
 			"name": "TravelsClub Get 10002",
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/gettravel",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/gettravel",
 				"method": "POST",
 				"header": [
 					{
@@ -330,7 +330,7 @@
 		{
 			"name": "TravelsClub Get 10001",
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/gettravel",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/gettravel",
 				"method": "POST",
 				"header": [
 					{
@@ -350,7 +350,7 @@
 		{
 			"name": "Links Get For TravelId=1",
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/getlink",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/getlink",
 				"method": "POST",
 				"header": [
 					{
@@ -370,7 +370,7 @@
 		{
 			"name": "Links Get For TravelId=2",
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/getlink",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/getlink",
 				"method": "POST",
 				"header": [
 					{
@@ -403,7 +403,7 @@
 				}
 			],
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/setlink",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/setlink",
 				"method": "POST",
 				"header": [
 					{
@@ -435,7 +435,7 @@
 				}
 			],
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/setlink",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/setlink",
 				"method": "POST",
 				"header": [
 					{
@@ -467,7 +467,7 @@
 				}
 			],
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/setlink",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/setlink",
 				"method": "POST",
 				"header": [
 					{
@@ -499,7 +499,7 @@
 				}
 			],
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/setlink",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/setlink",
 				"method": "POST",
 				"header": [
 					{
@@ -532,7 +532,7 @@
 				}
 			],
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/setlink",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/setlink",
 				"method": "POST",
 				"header": [
 					{
@@ -564,7 +564,7 @@
 				}
 			],
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/setlink",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/setlink",
 				"method": "POST",
 				"header": [
 					{
@@ -596,7 +596,7 @@
 				}
 			],
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/setlink",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/setlink",
 				"method": "POST",
 				"header": [
 					{
@@ -628,7 +628,7 @@
 				}
 			],
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/setlink",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/setlink",
 				"method": "POST",
 				"header": [
 					{
@@ -660,7 +660,7 @@
 				}
 			],
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/setlink",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/setlink",
 				"method": "POST",
 				"header": [
 					{
@@ -692,7 +692,7 @@
 				}
 			],
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/setlink",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/setlink",
 				"method": "POST",
 				"header": [
 					{
@@ -724,7 +724,7 @@
 				}
 			],
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/setlink",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/setlink",
 				"method": "POST",
 				"header": [
 					{
@@ -756,7 +756,7 @@
 				}
 			],
 			"request": {
-				"url": "https://hphp-rockeek.c9users.io/setlink",
+				"url": "https://hphp-rockeek.c9users.io/onyvaapi/setlink",
 				"method": "POST",
 				"header": [
 					{
