@@ -5,7 +5,7 @@ return [
         'displayErrorDetails' => true, // set to false in production
         'prettyJson' => true, // set to false in production
         'addContentLengthHeader' => false, // Allow the web server to send the content-length header
-        'apiPrefix' => '/onyvaapi', // prefix like: http://boogy.ovh/onyvaapi/getvehicule
+        'apiPrefix' => '/onyvaapi', // prefix like: http://boogy.fr/onyvaapi/getvehicule
 
         // Onyva application settings
         'app' => [

@@ -49,26 +49,6 @@ class BaseTestCase extends \PHPUnit_Framework_TestCase
      */
     public function runApp($requestMethod, $requestUri, $requestData = null)
     {
-        // Create a mock environment for testing with
-        $environment = Environment::mock(
-            [
-                'REQUEST_METHOD' => $requestMethod,
-                'REQUEST_URI' => $requestUri,
-                'CONTENT_TYPE' => 'application/json;charset=utf8',
-            ]
-        );
-
-        // Set up a request object based on the environment
-        $request = Request::createFromEnvironment($environment);
-
-        // Add request data, if it exists
-        if (isset($requestData)) {
-            $request = $request->withParsedBody($requestData);
-        }
-
-        // Set up a response object
-        $response = new Response();
-
         // Use the application settings
         $settings = require __DIR__.'/../../src/settings.php';
 
@@ -85,6 +65,27 @@ class BaseTestCase extends \PHPUnit_Framework_TestCase
 
         // Register routes
         require __DIR__.'/../../src/routes.php';
+
+        $prefix = $app->getContainer()->get('settings')['apiPrefix'];
+        // Create a mock environment for testing with
+        $environment = Environment::mock(
+            [
+                'REQUEST_METHOD' => $requestMethod,
+                'REQUEST_URI' => $prefix.$requestUri,
+                'CONTENT_TYPE' => 'application/json;charset=utf8',
+            ]
+        );
+
+        // Set up a request object based on the environment
+        $request = Request::createFromEnvironment($environment);
+
+        // Add request data, if it exists
+        if (isset($requestData)) {
+            $request = $request->withParsedBody($requestData);
+        }
+
+        // Set up a response object
+        $response = new Response();
 
         // Process the application
         $response = $app->process($request, $response);
