@@ -67,7 +67,8 @@ class ClubController extends Controller
 
     private function getClub($clubId, $password)
     {
-        $getQuery = $this->db->prepare('SELECT ClubId as clubId, ClubName as name FROM Club WHERE ClubId = :clubId AND ClubPassword = :password');
+        $getQuery = $this->db->prepare('SELECT ClubId as clubId, ClubName as name, ClubPassword as password FROM Club 
+            WHERE ClubId = :clubId AND ClubPassword = :password');
         $getQuery->bindParam(':clubId', $clubId);
         $getQuery->bindParam(':password', $password);
         $getQuery->execute();
