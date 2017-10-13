@@ -31,6 +31,7 @@ class ClubTest extends BaseTestCase
         $this->assertNotEmpty($json[0]['clubId']);
         $this->assertGreaterThanOrEqual(10000, $json[0]['clubId']);
         $this->assertEquals(0, $json[0]['passengers']);
+        $this->assertNull($json[0]['isInvalid']);
     }
 
     // Depends on testRegisterOneClub
@@ -60,7 +61,7 @@ class ClubTest extends BaseTestCase
         $this->assertEquals(200, $response->getStatusCode());
         $json = json_decode($response->getBody(), true);
         //$this->show($json);
-        $this->assertEmpty($json[0]);
+        $this->assertTrue($json[0]['isInvalid']);
     }
 
     /* public function testTwoDeviceRegisterSameClub()

@@ -72,7 +72,17 @@ class ClubController extends Controller
         $getQuery->bindParam(':password', $password);
         $getQuery->execute();
 
-        $club = $getQuery->fetchObject();
+        // $result = $getQuery->fetchObject();
+        $result = $getQuery->fetchAll(\PDO::FETCH_CLASS, 'App\\Club');
+        if (sizeof($result) == 0) {
+            // The club has not been found. Send it back with flag isInvalid
+            $club = new Club();
+            $club->clubId = $clubId;
+            $club->password = $password;
+            $club->isInvalid = true;
+        } else {
+            $club = $result[0];
+        }
 
         return $club;
     }
