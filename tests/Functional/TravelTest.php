@@ -16,7 +16,7 @@ class TravelTest extends BaseTestCase
         // Non existent identifier
         $identifier = 'idontexist';
         $clubId = 10001;
-        $clubPassword = 'boing';
+        $clubPassword = 'boing44';
         $idRequest = ['identifier' => $identifier, 'clubId' => $clubId, 'clubPassword' => $clubPassword];
         $response = $this->runApp('POST', '/gettravel', $idRequest);
         $this->assertEquals(406, $response->getStatusCode());
@@ -29,7 +29,7 @@ class TravelTest extends BaseTestCase
     {
         $identifier = 'aaabbb';
         $clubId = 10001;
-        $clubPassword = 'boing';
+        $clubPassword = 'boing44';
         $idRequest = ['identifier' => $identifier, 'clubId' => $clubId, 'clubPassword' => $clubPassword];
         $response = $this->runApp('POST', '/gettravel', $idRequest);
 
@@ -45,7 +45,7 @@ class TravelTest extends BaseTestCase
     {
         $identifier = 'aaabbb';
         $clubId = 10001;
-        $clubPassword = 'boing';
+        $clubPassword = 'boing44';
         $idRequest = ['identifier' => $identifier, 'clubId' => $clubId, 'clubPassword' => $clubPassword];
         $response = $this->runApp('POST', '/gettravel/friday', $idRequest);
 
@@ -61,7 +61,7 @@ class TravelTest extends BaseTestCase
     {
         $identifier = 'aaabbb';
         $clubId = 10001;
-        $clubPassword = 'boing';
+        $clubPassword = 'boing44';
         $idRequest = ['identifier' => $identifier, 'clubId' => $clubId, 'clubPassword' => $clubPassword];
         $response = $this->runApp('POST', '/gettravel/friday/18:15', $idRequest);
 
@@ -78,7 +78,7 @@ class TravelTest extends BaseTestCase
     {
         // No identifier at all
         $clubId = 10001;
-        $clubPassword = 'boing';
+        $clubPassword = 'boing44';
         $requestBody = array('clubId' => $clubId, 'clubPassword' => $clubPassword, 'travels' => [array('date' => '2015-10-10', 'time' => '10:10:00')]);
         // $this->show(json_encode($requestBody));
 
@@ -88,7 +88,7 @@ class TravelTest extends BaseTestCase
         // Non existent identifier
         $identifier = 'idontexist';
         $clubId = 10001;
-        $clubPassword = 'boing';
+        $clubPassword = 'boing44';
 
         $requestBody = array('identifier' => $identifier, 'clubId' => $clubId, 'clubPassword' => $clubPassword,
             'travels' => [array('date' => '2015-10-10', 'time' => '10:10:00')], );
@@ -102,7 +102,7 @@ class TravelTest extends BaseTestCase
     public function testCannotUpdateATravelOfAnotherClub()
     {
         // Get TravelId of a travel of another club 10002
-        $idRequest = ['identifier' => 'aaabbb', 'clubId' => 10002, 'clubPassword' => 'popo'];
+        $idRequest = ['identifier' => 'aaabbb', 'clubId' => 10002, 'clubPassword' => 'popo123'];
         $response = $this->runApp('POST', '/gettravel', $idRequest);
 
         $this->assertEquals(200, $response->getStatusCode());
@@ -114,7 +114,7 @@ class TravelTest extends BaseTestCase
         $travelId = $travel['travelId'];
 
         // In club 10001, try to modify travel of club 10002
-        $requestBody = array('identifier' => 'aaabbb', 'clubId' => 10001, 'clubPassword' => 'boing', 'travels' => [array('day' => 'WEDNESDAY')]); // we change travel to update
+        $requestBody = array('identifier' => 'aaabbb', 'clubId' => 10001, 'clubPassword' => 'boing44', 'travels' => [array('day' => 'WEDNESDAY')]); // we change travel to update
         //$this->show(json_encode($requestBody));
 
         $response = $this->runApp('POST', '/settravel', $requestBody);
@@ -124,7 +124,7 @@ class TravelTest extends BaseTestCase
         //$this->show($body);
 
         // Check the travel has not changed
-        $idRequest = ['identifier' => 'aaabbb', 'clubId' => 10002, 'clubPassword' => 'popo'];
+        $idRequest = ['identifier' => 'aaabbb', 'clubId' => 10002, 'clubPassword' => 'popo123'];
         $response = $this->runApp('POST', '/gettravel', $idRequest);
 
         $this->assertEquals(200, $response->getStatusCode());
@@ -143,7 +143,7 @@ class TravelTest extends BaseTestCase
     {
         $identifier = 'aaabbb';
         $clubId = 10001;
-        $clubPassword = 'boing';
+        $clubPassword = 'boing44';
         $idRequest = ['identifier' => $identifier, 'clubId' => $clubId, 'clubPassword' => $clubPassword];
 
         $travels = [array('day' => 'SUNDAY', 'time' => '12:12:00'), array('date' => '2016-10-30', 'time' => '12:13:00')];

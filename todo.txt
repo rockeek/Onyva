@@ -1,3 +1,5 @@
+TODO 20/10/2017: enforce minimum password length: 6.
+
 TODO: fix json input for other services (than club, passengers, vehicules, travel)
 
 24/8/2017

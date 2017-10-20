@@ -8,7 +8,7 @@ class LinkTest extends BaseTestCase
     {
         $identifier = 'poulet';
         $clubId = 10001;
-        $clubPassword = 'boing';
+        $clubPassword = 'boing44';
         $travelId = 2;
         $link = ['passengerId' => 6, 'vehiculeId' => 3];
 
@@ -35,7 +35,7 @@ class LinkTest extends BaseTestCase
     {
         $identifier = 'cahier';
         $clubId = 10001;
-        $clubPassword = 'boing';
+        $clubPassword = 'boing44';
         $travelId = 2;
         $link = ['passengerId' => null, 'vehiculeId' => 5];
 
@@ -70,7 +70,7 @@ class LinkTest extends BaseTestCase
     {
         $identifier = 'joujou';
         $clubId = 10001;
-        $clubPassword = 'boing';
+        $clubPassword = 'boing44';
         $travelId = 2;
         $link = ['passengerId' => 8, 'vehiculeId' => 1];
 
@@ -96,7 +96,7 @@ class LinkTest extends BaseTestCase
     {
         $identifier = 'youhou';
         $clubId = 10001;
-        $clubPassword = 'boing';
+        $clubPassword = 'boing44';
         $travelId = 2;
         $link = ['passengerId' => 9, 'vehiculeId' => null];
 
@@ -134,7 +134,7 @@ class LinkTest extends BaseTestCase
     {
         $identifier = 'youhou';
         $clubId = 10001;
-        $clubPassword = 'boing';
+        $clubPassword = 'boing44';
         $travelId = 2;
         $link = ['passengerId' => 9, 'vehiculeId' => 1];
 
@@ -160,7 +160,7 @@ class LinkTest extends BaseTestCase
     {
         $identifier = 'aaabbb';
         $clubId = 10001;
-        $clubPassword = 'boing';
+        $clubPassword = 'boing44';
         $travelId = 2;
         $link = ['passengerId' => 10, 'vehiculeId' => 1];
 
@@ -194,7 +194,7 @@ class LinkTest extends BaseTestCase
     {
         $identifier = 'cahier';
         $clubId = 10001;
-        $clubPassword = 'boing';
+        $clubPassword = 'boing44';
         $travelId = 2;
         $link = ['passengerId' => 10, 'vehiculeId' => null];
 
@@ -213,7 +213,7 @@ class LinkTest extends BaseTestCase
     {
         $identifier = 'aaabbb';
         $clubId = 10001;
-        $clubPassword = 'boing';
+        $clubPassword = 'boing44';
         $travelId = 2;
         $link = ['passengerId' => 9, 'vehiculeId' => null];
 
@@ -240,7 +240,7 @@ class LinkTest extends BaseTestCase
         // First Lisa goes to Renault car
         $identifier = 'youhou';
         $clubId = 10001;
-        $clubPassword = 'boing';
+        $clubPassword = 'boing44';
         $travelId = 2;
         $link = ['passengerId' => 9, 'vehiculeId' => 3];
 
@@ -257,7 +257,7 @@ class LinkTest extends BaseTestCase
         // Then Xsara tries to kick Lisa out of Renault
         $identifier = 'aaabbb';
         $clubId = 10001;
-        $clubPassword = 'boing';
+        $clubPassword = 'boing44';
         $travelId = 2;
         $link = ['passengerId' => 9, 'vehiculeId' => null];
 

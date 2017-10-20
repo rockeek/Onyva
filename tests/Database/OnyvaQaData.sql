@@ -14,10 +14,10 @@ INSERT INTO `Device` (`Os`, `Version`, `Ip`, `Identifier`) VALUES
 -- Contenu de la table `Club`
 --
 INSERT INTO `Club` (`ClubName`, `ClubPassword`) VALUES
-('Réunion St Sever', 'boing'),  -- 1
-('Basket', 'popo'),             -- 2
-('Cinema', 'Wayne'),            -- 3
-('Théâtre', 'Juan');            -- 4
+('Réunion St Sever', 'boing44'),   -- 1
+('Basket', 'popo123'),             -- 2
+('Cinema', 'Wayne2'),              -- 3
+('Théâtre', 'Juan3%44');           -- 4
 
 --
 -- Contenu de la table `Vehicule`
