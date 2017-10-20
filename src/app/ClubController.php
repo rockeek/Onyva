@@ -41,9 +41,9 @@ class ClubController extends Controller
             return $response->withStatus(406);
         }
 
-        // password is mandatory
+        // password is mandatory and must be at least 6 characters
         foreach ($requestClubs['clubs'] as $club) {
-            if (!isset($club['password'])) {
+            if (!isset($club['password']) || strlen($club['password']) < 6) {
                 return $response->withJson($data, 406);
             }
         }
