@@ -34,25 +34,6 @@ class ClubTest extends BaseTestCase
         $this->assertNull($json[0]['isInvalid']);
     }
 
-    public function testCreateClubPasswordMinimumLength()
-    {
-        $clubName = 'St Sever';
-        $password = self::randomString(5);
-        $identifier = self::registerNewDevice();
-
-        // With too short password
-        $response = $this->registerClub($identifier, null, $clubName, $password);
-        $this->assertEquals(406, $response->getStatusCode());
-
-        $password = self::randomString(6);
-        $response = $this->registerClub($identifier, null, $clubName, $password);
-        $this->assertEquals(200, $response->getStatusCode());
-        $json = json_decode($response->getBody(), true);
-        //$this->show($json);
-        $clubId = $json[0]['clubId'];
-        $this->assertNotEmpty($clubId);
-    }
-
     // Depends on testRegisterOneClub
     public function testRegisterOneClubWithWrongAndGoodPassword()
     {
