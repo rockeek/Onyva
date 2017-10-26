@@ -17,11 +17,11 @@ class ClubController extends Controller
      *   "identifier":"47gV61SUd3AraOCkNIvPwKDoQZynzJjFt9qXW0i8mLfMHxe5buhYEsR2GBcTpl",
      *   "clubs":[
      *     {
-     *        "clubId":"100013",
+     *        "clubId":100013,
      *        "password":"Reunion"
      *     },
      *     {
-     *        "clubId":"100015",
+     *        "clubId":100015,
      *        "password":"popo"
      *     }
      *    ]
@@ -94,7 +94,7 @@ class ClubController extends Controller
         $getQuery->bindParam(':clubId', $clubId);
         $getQuery->execute();
 
-        $club = $getQuery->fetchObject();
+        $club = $getQuery->fetchObject('App\\Club');
 
         return $club;
     }
