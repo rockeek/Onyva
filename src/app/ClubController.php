@@ -78,7 +78,7 @@ class ClubController extends Controller
         if (sizeof($result) == 0) {
             // The club has not been found. Send it back with flag isInvalid
             $club = new Club();
-            $club->clubId = $clubId;
+            $club->clubId = intval($clubId);
             $club->password = $password;
             $club->isInvalid = true;
         } else {
