@@ -88,6 +88,33 @@ class ClubController extends Controller
         return $club;
     }
 
+    /**
+     * Delete a club. Returns true of false to client whether delete is ok.
+     */
+    public function deleteClub($request, $response, $args)
+    {
+        $this->logMe(get_class(), __FUNCTION__, $args);
+        $request = $request->getParsedBody();
+
+        // device should already be registered to create or update vehicules
+        $identifier = $request['identifier'];
+
+        $deviceId = $this->getDeviceIdFromIdentifier($identifier);
+        if ($deviceId == null) {
+            return $response->withStatus(406);
+        }
+
+        $isOk = $this->internalDeleteClub($request['password'], $request['clubId']);
+
+        if ($isOk) {
+            $this->info('Club delete succeeded.');
+        } else {
+            $this->info('Club delete failed.');
+        }
+
+        return $response->withJson($isOk, 200);
+    }
+
     private function getClubById($clubId)
     {
         $getQuery = $this->db->prepare('SELECT ClubId as clubId, ClubName as name, ClubPassword as password FROM Club WHERE ClubId = :clubId');
@@ -108,5 +135,25 @@ class ClubController extends Controller
         $createQuery->execute();
 
         return $this->db->lastInsertId();
+    }
+
+    /**
+     * Delete Club.
+     * Security: The password must be correct to be able to delete a club.
+     */
+    private function internalDeleteClub($password, $clubId)
+    {
+        try {
+            $query = $this->db->prepare('DELETE from Club
+                                    WHERE ClubId = :clubId
+                                    AND ClubPassword = :password');
+            $query->bindParam(':password', $password);
+            $query->bindParam(':clubId', $clubId);
+            $query->execute();
+
+            return $query->rowCount() == 1;
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
     }
 }

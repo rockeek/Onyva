@@ -156,7 +156,7 @@ class VehiculeController extends Controller
             $query->bindParam(':vehiculeId', $vehiculeId);
             $query->execute();
 
-            return "Vehicule deleted: '$name'".$query->rowCount() == 1 ? 'succeeded.' : 'failed.';
+            return $query->rowCount() == 1;
         } catch (Exception $e) {
             return $e->getMessage();
         }
