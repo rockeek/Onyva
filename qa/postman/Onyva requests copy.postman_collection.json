@@ -1,0 +1,765 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Onyva requests copy",
+		"_postman_id": "128bbd7f-4f81-6991-1995-a9e3bdc379ad",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Device register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"os\":\"Android\",\n   \"version\":1,\n   \"identifier\":\"abc1234\"\n}"
+				},
+				"url": "{{url}}/{{prefix}}/device",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Clubs correct name/pass",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"identifier\":\"aaabbb\",\r\n   \"clubs\":[\r\n       {\r\n          \"clubId\":\"10000\",\r\n          \"password\":\"FirstDummy\"\r\n       },\r\n       {\r\n          \"name\":\"newClub\",\r\n          \"password\":\"FirstDummy\"\r\n       }\r\n  ]\r\n}"
+				},
+				"url": "{{url}}/{{prefix}}/club",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Club Delete via POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"clubId\": 10003,\r\n  \"password\": \"Wayne2\"\r\n}\r\n"
+				},
+				"url": "{{url}}/{{prefix}}/deleteclub",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Passengers Get via POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"identifier\":\"aaabbb\"\r\n}"
+				},
+				"url": "{{url}}/{{prefix}}/getpassenger",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Passengers Delete via POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"identifier\":\"aaabbb\",\r\n   \"passengerId\":2\r\n}"
+				},
+				"url": "{{url}}/{{prefix}}/deletepassenger",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Passengers create and update",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"passengers\":[\r\n     {\r\n        \"passengerId\":2,\r\n        \"name\":\"Fifoo\"\r\n     },\r\n     {\r\n        \"name\":\"Kiko\"\r\n     }\r\n  ]\r\n}\r\n"
+				},
+				"url": "{{url}}/{{prefix}}/setpassenger",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Passengers update fail because wrong identifier",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"idontexist\",\r\n  \"passengers\":[\r\n     {\r\n        \"passengerId\":2,\r\n        \"name\":\"Another man that is not good\"\r\n     },\r\n     {\r\n        \"name\":\"User that should not be created\"\r\n     }\r\n  ]\r\n}"
+				},
+				"url": "{{url}}/{{prefix}}/setpassenger",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Passengers update",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"passengers\":[\r\n     {\r\n        \"passengerId\":1,\r\n        \"name\":\"Poulet\"\r\n     },\r\n     {\r\n        \"passengerId\":2,\r\n        \"name\":\"Grille\"\r\n     }\r\n  ]\r\n}"
+				},
+				"url": "{{url}}/{{prefix}}/setpassenger",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Vehicule Get via POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\"\r\n}\r\n"
+				},
+				"url": "{{url}}/{{prefix}}/getvehicule",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Vehicules create and update copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"vehicules\":[\r\n     {\r\n      \"vehiculeId\": 1,\r\n      \"name\": \"Xsara Rémy\",\r\n      \"trademark\": \"Citroën Xsara\",\r\n      \"color\": \"Verte\",\r\n      \"seats\": 5\r\n     },\r\n     {\r\n        \"name\": \"Golf 4\",\r\n        \"trademark\": \"Wolkswagen\",\r\n        \"color\": \"Rouge\",\r\n        \"seats\": 2\r\n     }\r\n  ]\r\n}\r\n"
+				},
+				"url": "{{url}}/{{prefix}}/setvehicule",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Vehicules update fail because wrong identifier copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"idontexist\",\r\n  \"vehicules\":[\r\n     {\r\n      \"vehiculeId\": \"1\",\r\n      \"name\": \"Xsara Rémy cassée\",\r\n      \"trademark\": \"Citroën Xsara 1.9\",\r\n      \"color\": \"Orange\",\r\n      \"seats\": \"3\"\r\n     },\r\n     {\r\n        \"name\": \"Voiture de collection\",\r\n      \"trademark\": \"Mercedes\",\r\n      \"color\": \"Blanche\",\r\n      \"seats\": \"5\"\r\n     }\r\n  ]\r\n}"
+				},
+				"url": "{{url}}/{{prefix}}/setvehicule",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Vehicules Delete via POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"vehiculeId\": 1\r\n}\r\n"
+				},
+				"url": "{{url}}/{{prefix}}/deletevehicule",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Travels Get",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\"\r\n}\r\n"
+				},
+				"url": "{{url}}/{{prefix}}/gettravel",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Travels Get with filter day",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\"\r\n}\r\n"
+				},
+				"url": "{{url}}/{{prefix}}/gettravel/friday",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Travels Get with filter day and time",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\"\r\n}\r\n"
+				},
+				"url": "{{url}}/{{prefix}}/gettravel/friday/18:15",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Travels Set",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travels\":[\r\n     {\r\n        \"travelId\":\"1\",\r\n        \"day\":\"THURSDAY\",\r\n        \"time\":\"08:20\"\r\n     },\r\n     {\r\n        \"travelId\":\"2\",\r\n        \"date\":\"2017-12-18\",\r\n        \"time\":\"17:25\"\r\n     },\r\n     {\r\n        \"date\":\"2017-12-18\",\r\n        \"time\":\"17:25\"\r\n     },\r\n     {\r\n        \"day\":\"MONDAY\",\r\n        \"time\":\"08:20\"\r\n     },\r\n     {\r\n       \"date\":null,\r\n        \"day\":\"THURSDAY\",\r\n        \"time\":\"08:25\"\r\n     }\r\n  ]\r\n}"
+				},
+				"url": "{{url}}/{{prefix}}/settravel",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "TravelsClub Get 10002",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"clubId\":\"10002\",\r\n  \"clubPassword\":\"popo\"\r\n}\r\n"
+				},
+				"url": "{{url}}/{{prefix}}/gettravel",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "TravelsClub Get 10001",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\"\r\n}\r\n"
+				},
+				"url": "{{url}}/{{prefix}}/gettravel",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Links Get For TravelId=1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"1\"\r\n}\r\n"
+				},
+				"url": "{{url}}/{{prefix}}/getlink",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Links Get For TravelId=2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"2\"\r\n}\r\n"
+				},
+				"url": "{{url}}/{{prefix}}/getlink",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Links Set CASE1 - Alexandra offers her car with herself",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Check result\"] = jsonData['result'] === \"new vehicule with a passenger link successfully\";",
+							"tests[\"Check validation\"] = jsonData['validation'] === null;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"poulet\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"1\",\r\n  \"link\":{\r\n    \"passengerId\":\"6\",\r\n    \"vehiculeId\":\"3\"\r\n  }\r\n}\r\n"
+				},
+				"url": "{{url}}/{{prefix}}/setlink",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Links Set CASE1 faulty - Alexandra offers a car of another device",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Check validation\"] = jsonData['validation'] === \"vehicule and passenger must belong to the commanding device\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"poulet\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"1\",\r\n  \"link\":{\r\n    \"passengerId\":\"6\",\r\n    \"vehiculeId\":\"5\"\r\n  }\r\n}\r\n"
+				},
+				"url": "{{url}}/{{prefix}}/setlink",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Links Set CASE2 - Noémie tries to offer her car without driver",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Check validation\"] = jsonData['validation'] === \"a vehicule needs a driver\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"cahier\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"1\",\r\n  \"link\":{\r\n    \"passengerId\":null,\r\n    \"vehiculeId\":\"5\"\r\n  }\r\n}\r\n"
+				},
+				"url": "{{url}}/{{prefix}}/setlink",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Links Set CASE2 faulty - Noémie tries to offer someone else's car without driver",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Check validation\"] = jsonData['validation'] === \"the vehicule must belong to the commanding device\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"cahier\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"1\",\r\n  \"link\":{\r\n    \"passengerId\":null,\r\n    \"vehiculeId\":\"3\"\r\n  }\r\n}\r\n"
+				},
+				"url": "{{url}}/{{prefix}}/setlink",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Links Set CASE3 - Deborah to Xsara",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Check result\"] = jsonData['result'] === \"new passenger linked to existing vehicule successfully\";",
+							"tests[\"Check validation\"] = jsonData['validation'] === null;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"joujou\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"1\",\r\n  \"link\":{\r\n    \"passengerId\":\"8\",\r\n    \"vehiculeId\":\"1\"\r\n  }\r\n}\r\n"
+				},
+				"url": "{{url}}/{{prefix}}/setlink",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Links Set CASE4 - Lisa goes waiting as a lonely passenger",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Check result\"] = jsonData['result'] === \"lonely passenger linked to existing vehicule successfully\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"youhou\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"2\",\r\n  \"link\":{\r\n    \"passengerId\":\"9\",\r\n    \"vehiculeId\":null\r\n  }\r\n}\r\n"
+				},
+				"url": "{{url}}/{{prefix}}/setlink",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Links Set CASE4 faulty - Lisa try to set Deborah to go waiting as a lonely passenger",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Check validation\"] = jsonData['validation'] === \"passenger must belong to the commanding device\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"youhou\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"1\",\r\n  \"link\":{\r\n    \"passengerId\":\"8\",\r\n    \"vehiculeId\":null\r\n  }\r\n}\r\n"
+				},
+				"url": "{{url}}/{{prefix}}/setlink",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Links Set CASE4 faulty TravelId2 - Lisa try to set Deborah to go waiting as a lonely passenger",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Check validation\"] = jsonData['validation'] === \"passenger must belong to the commanding device\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"youhou\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"2\",\r\n  \"link\":{\r\n    \"passengerId\":\"8\",\r\n    \"vehiculeId\":null\r\n  }\r\n}\r\n"
+				},
+				"url": "{{url}}/{{prefix}}/setlink",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Links Set CASE5 - Former lonely Alexandra goes to Xsara",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Check result\"] = jsonData['result'] === \"lonely passenger went to waiting vehicule successfully\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"poulet\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"1\",\r\n  \"link\":{\r\n    \"passengerId\":\"6\",\r\n    \"vehiculeId\":\"1\"\r\n  }\r\n}\r\n"
+				},
+				"url": "{{url}}/{{prefix}}/setlink",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Links Set CASE5b - XsaraOwnerTakesInLonelyNoemie (travelId=2)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Check result\"] = jsonData['result'] === \"vehicule owner picked the lonely passenger up\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"2\",\r\n  \"link\":{\r\n    \"passengerId\":\"4\",\r\n    \"vehiculeId\":\"1\"\r\n  }\r\n}\r\n"
+				},
+				"url": "{{url}}/{{prefix}}/setlink",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Links Set CASE5c - NoemieExistsXsaraCarToSidewalk (travelId=2)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Check result\"] = jsonData['result'] === \"passenger went lonely waiting to the sidewalk\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"cahier\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"2\",\r\n  \"link\":{\r\n    \"passengerId\":\"10\",\r\n    \"vehiculeId\":null\r\n  }\r\n}\r\n"
+				},
+				"url": "{{url}}/{{prefix}}/setlink",
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Links Set CASE5d - XsaraDriverKicksOutLisa (travelId=2)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"Check result\"] = jsonData['result'] === \"vehicule driver kicked the passenger to the sidewalk\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"identifier\":\"aaabbb\",\r\n  \"clubId\":\"10001\",\r\n  \"clubPassword\":\"boing\",\r\n  \"travelId\":\"2\",\r\n  \"link\":{\r\n    \"passengerId\":\"9\",\r\n    \"vehiculeId\":null\r\n  }\r\n}\r\n"
+				},
+				"url": "{{url}}/{{prefix}}/setlink",
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
